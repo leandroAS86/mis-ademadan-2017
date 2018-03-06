@@ -1,5 +1,5 @@
 /vendor/
 /data/
 /app/config.php
-/public/bower_components/bootstrap
-/public/uploads
+/public/bower_components/bootstrap/
+/public/uploads/
