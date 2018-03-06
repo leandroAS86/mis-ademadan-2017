@@ -1,0 +1,102 @@
+
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+<div class="panel-body">
+    <?php echo (isset($this->alert) ? $this->alert:''); ?>
+
+
+  <form id="searchbarid" name="Search"  action="<?php echo BASE; ?>comunicacao/mostrar" method="get">
+        <div class="form-group">
+            
+            <div class="col-sm-12">
+            <h3>Comunicação dos projetos.</h3>
+            <legend></legend>
+            <h4 class="alert alert-info">
+              Nesta tela é possível atualizar informação sobre comunicação dos projetos. <br>
+              1. Selecionar o nome da instituição na lista abaixo, <br>
+              2. Clicar em Pesquisar, <br> 
+              2. Selecionas qual projeto deseja atualizar a informação, <br>
+              3. Preencher o formulário e <br> 
+              4. Clicar em Enviar. <br>
+              Verifique a situação da instituição na aba Relatórios. <br>
+              Apenas instituições com situação em aberto são listadas abaixo.
+
+          </h4>
+            <label for="nome" class="col-sm-0 control-label">Pesquisar projetos:</label>
+                <select class="form-control" name = "name_institution" id="name_institution">
+                    <?php 
+                        foreach ($view_institutions as $institution) :
+                          if (!$institution->situation) : ?>
+                    ?>
+                       <option>
+                           CNPJ>> <?php echo $institution->cnpj; ?> >>
+                          <?php echo $institution->name_institution; ?>                        
+                        </option>
+                    <?php 
+                    endif;
+                    endforeach;
+                  ?>
+                </select><br>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-0 col-sm-10">
+                <input type='submit' name="Submit" value="Pesquisar" class="btn btn-success"/>
+            </div>
+        </div> 
+
+    </form>
+
+    <form action ="<?php echo BASE; ?>comunicacao/registrar/" enctype="multipart/form-data" class="form-horizontal" method = "post">
+
+      <div class="col-sm-12">
+          <h3>Comunicação dos Projetos</h3>
+          <legend></legend>
+        </div> 
+
+      <div class="form-group">
+          <label for="nome" class="col-sm-3 control-label">Projetos encontrados:</label>
+          <div class="col-sm-8">
+             <select class="form-control" name = "name_institution" id="name_institution">
+                <?php
+                  if (!empty($view_projects)) : 
+                  foreach ($view_projects as $pro) :
+                ?>           
+                  <option>
+                      ID:>> <?php echo $pro->id; ?> >>
+                      <?php echo $pro->titulo; ?>         
+                  </option>
+                <?php 
+                   endforeach;
+                   endif;
+                ?>
+            </select>
+           </div>
+        </div>
+       
+          <div class="form-group">
+            <label for="imagem" class="col-sm-3 control-label">Site</label>
+              <div class="col-sm-8">
+                <input type="text" name="site_projeto" class="form-control" id="site_projeto" placeholder="Site">
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="imagem" class="col-sm-3 control-label">Banner</label>
+            <input type="file" name="banner_projeto" id="banner_projeto">
+          </div>
+
+          <div class="form-group">
+            <label for="imagem" class="col-sm-3 control-label">Vídeo </label>
+            <input type="file" name="video_projeto" id="video_projeto">
+          </div>
+
+        <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10">
+          <input type="submit" class="btn btn-success">
+          <input type="reset" class="btn btn-success" value="Limpar">
+          <a href="<?php echo BASE; ?>home/" style="color:  #0071BF">Retornar para Home</a>
+        </div>
+      </div>
+    </form>
+</div>

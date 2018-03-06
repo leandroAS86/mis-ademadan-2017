@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="generator" content="HXPHP Framework">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><?php echo $view_title; ?></title>
+        <link rel="shortcut icon" href="<?php echo IMG; ?>MISicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="<?php echo BOWER; ?>bootstrap/dist/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo BOWER; ?>font-awesome/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo CSS; ?>main.css" type="text/css">
+        <script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
+
+    <?php 
+        echo $add_css;
+        echo $add_js;
+    ?>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <a id="logo" href="<?php echo BASE; ?>">
+                            <img class="img-responsive" src="<?php echo IMG; ?>MIS.png" alt="">
+                        </a>
+                    </div>

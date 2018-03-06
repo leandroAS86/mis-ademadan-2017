@@ -1,0 +1,40 @@
+<div class="panel-body">
+    <?php echo (isset($this->alert) ? $this->alert:''); ?>
+    <form action ="<?php echo BASE; ?>cadastro/cadastrar/" class="form-horizontal" method = "post">
+       
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">E-mail</label>
+            <div class="col-sm-8">
+                <input required type="email" name = "email" class="form-control" id="email" placeholder="E-mail" value="<?php echo $this->request->post('email') ?>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nome" class="col-sm-3 control-label">Nome:</label>
+            <div class="col-sm-8">
+                <input required type="text" name = "nome" class="form-control" id="nome" placeholder="Nome" value="<?php echo $this->request->post('nome') ?>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Nome usuário:</label>
+            <div class="col-sm-8">
+                <input required type="text" name = "username" class="form-control" id="username" placeholder="Nome de usuário" value="<?php echo $this->request->post('username') ?>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Senha</label>
+                <div class="col-sm-8">
+                    <input required type="password" name = "password" class="form-control" id="password" placeholder="Senha">
+                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-success">Enviar</button>
+                <a href="<?php echo BASE; ?>login/" style="color:  #0071BF">Retornar
+            </div>
+        </div>
+    </form>
+</div>
+ 

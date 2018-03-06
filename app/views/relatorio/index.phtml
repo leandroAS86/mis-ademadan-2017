@@ -1,0 +1,116 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+    <?php 
+      echo (isset($this->alert) ? $this->alert : '');
+    ?>
+    <table class="table">
+		<thead>
+			<tr>
+				<th>Instituição</th>
+				<th>Visualizar</th>
+				<th>Estatus</th>
+				<th>Situação</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+			if ($view_reports) :
+			foreach ($view_reports as $report) : 
+		?>
+		<tr>
+			<td><?php echo $report->name_institution; ?></td>
+			<td>
+			<a href="<?php echo BASE . 'visualizar/geralrelatorio/' . $report->cnpj; ?>" class="btn btn-xs btn-success">
+				<i class="fa"></i> Visualizar</a>
+			</td>
+	
+			<td>
+			<?php if ($report->status === 0) : ?>
+				<a href="<?php echo BASE . 'relatorio/aprovar/' . $report->cnpj; ?>" class="btn btn-xs btn-success">
+					<i class="fa fa-unlock"></i> Aprovar
+				</a>	
+			 <?php else: ?>
+				<a href="<?php echo BASE . 'relatorio/reprovar/' . $report->cnpj; ?>" class="btn btn-xs btn-warning">
+					<i class="fa fa-lock"></i> Reprovar
+				</a>
+				
+				<?php endif; ?>
+			</td>
+
+			<td>
+			<?php if ($report->situation === 0) : ?>
+				<a href="<?php echo BASE . 'relatorio/abrir/' . $report->cnpj; ?>" class="btn btn-xs btn-success">
+					<i class="fa fa-unlock"></i> Aberto
+				</a>	
+			 <?php else: ?>
+				<a href="<?php echo BASE . 'relatorio/fechar/' . $report->cnpj; ?>" class="btn btn-xs btn-warning">
+					<i class="fa fa-lock"></i> Fechado
+				</a>
+				
+				<?php endif; ?>
+			</td>
+
+
+			<td>
+				<a href="<?php echo BASE . 'relatorio/excluir/' . $report->cnpj; ?>" class="btn btn-xs btn-danger">
+					<i class="fa fa-trash"></i> Excluir
+				</a>
+			</td>
+		</tr>
+		<?php 
+			endforeach;
+			endif;
+		?>
+		</tbody>
+	</table>
+
+    <table class="table">
+		<thead>
+			<tr>
+				<th>Instituição</th>
+				<th>Visualizar</th>
+				<th>Ações</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php 
+				if ($view_ademadanreport) : 
+				foreach ($view_ademadanreport as $report) : 
+			?>
+			<tr>
+				<td>ADEMADAN</td>
+
+				<td><a href="<?php echo BASE . 'visualizar/ademadanrelatorio/' . $report->user_id; ?>" class="btn btn-xs btn-success">
+							<i class="fa"></i> Visualizar
+						</a></td>
+
+				<td>
+				<?php if ($report->status === 0) : ?>
+						<a href="<?php echo BASE . 'relatorio/aprovarademadan/' . $report->id; ?>" class="btn btn-xs btn-success">
+							<i class="fa fa-unlock"></i> Aprovar
+						</a>	
+					<?php else: ?>
+						<a href="<?php echo BASE . 'relatorio/reprovarademadan/' . $report->id; ?>" class="btn btn-xs btn-warning">
+							<i class="fa fa-lock"></i> Reprovar
+						</a>
+					<?php endif; ?>
+				</td>
+				<td>
+					<a href="<?php echo BASE . 'relatorio/excluirademadan/' . $report->id; ?>" class="btn btn-xs btn-danger">
+						<i class="fa fa-trash"></i> Excluir
+					</a>
+				</td>
+			</tr>
+			<?php 
+				endforeach;
+				endif;
+			?>
+		</tbody>
+	</table>
+
+</div>

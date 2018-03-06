@@ -1,0 +1,12 @@
+body{
+     background-image: url('MIS.png');
+      background-repeat: no-repeat;
+    background-size:100%;
+   }
+
+.login-page
+{
+    background-image: url('img/MIS.png');
+    background-repeat: no-repeat;
+    background-size:100%;
+}

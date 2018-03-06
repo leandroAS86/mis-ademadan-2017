@@ -1,0 +1,60 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+<div class="panel-body">
+  <?php echo (isset($this->alert) ? $this->alert:''); ?>
+
+  <form action ="<?php echo BASE; ?>instituicao/registrar/" enctype="multipart/form-data" class="form-horizontal" method = "post">
+    <div class="form-group">
+      <div class="panel-body">
+                <?php
+                    $this->partial('message', array(
+                         'msg' => 'Utilze apenas números no CNPJ, sem pontos, traços ou barras!'
+                    ));
+                ?>
+       </div>
+      <label for="nome" class="col-sm-3 control-label">Nome da Instituição:</label>
+      <div class="col-sm-8">
+        <select class="form-control" name = "name_institution" id="name_institution">
+         
+          <option>Associação de Catadores, Coleta, Processamento e Armazenagem de lixo reciclável</option> 
+          <option>Associação de Catadores e Recicladores do Km 4</option>
+          <option>Associação dos Moradores do Bairro Alto</option>
+          <option>ACAPRA</option>
+          <option>Associação dos Moradores dos Bairros Itapema e Pinheirinho</option>
+          <option>Associação dos Moradores do Jardim Maria Luiza e Itapema</option>
+          <option>Associação dos Moradores da Penha II</option> 
+          <option>Associação dos Moradores da Ponta da Pita</option>
+          <option>Associação dos Moradores do Rio do Nunes</option>         
+          <option>Associação dos Moradores da Ponta da Pita</option>         
+          <option>Associação dos Moradores do Patronato do Idoso de Antonina</option>          
+          <option>Associação dos Moradores do Batel</option>
+          <option>Central</option>
+          <option>ABPIBA</option> 
+          <option>Escola Brasílio Machado</option>
+          <option>Escola Municipal Cleusa Mari de Lima Taglatella</option>          
+          <option>Unidade Básica de Saúde do Cedro</option>
+          <option>Unidade Básica de Saúde do Bairro Alto</option>         
+          <option>Unidade Básica de Saúde do Rio do Nunes</option>
+          <option>SAARA – Associação de Microssitema e Abastecimento de Água do Rio Cachoeira</option>         
+        </select>
+      </div>
+    </div>
+
+     <div class="form-group">
+        <label for="imagem" class="col-sm-3 control-label">CNPJ da Instituição</label>
+        <div class="col-sm-8">
+           <input required type="text" name="cnpj" class="form-control" id="cnpj" placeholder="">
+        </div>
+    </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10">
+          <button type="submit" class="btn btn-success">Enviar</button>
+          <input type="reset" class="btn btn-success" value="Limpar">
+          <a href="<?php echo BASE; ?>home/" style="color:  #0071BF">Retornar para Home</a>
+        </div>
+      </div>
+  </form>               
+</div>
+ 

@@ -1,0 +1,413 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+    <?php 
+      echo (isset($this->alert) ? $this->alert : '');
+    ?>
+
+		<div class="table-responsive">
+		<h3>Instituição</h3>
+    	<table class="table">
+            <tr>
+            	<th>Nome:</th>
+                <td>
+                	<?php echo $view_report->nome_instituicao;?>
+                </td>
+                <th>CNPJ:</th>
+                <td>
+                	<?php  echo $view_report->cnpj;?>
+                </td>
+            </tr>
+    	</table>
+    </div>
+
+
+	<div class="table-responsive">
+		<h3>Monitoramento</h3>
+    	<table class="table">
+    		<thead>
+				<tr>
+					<th>Evento</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<th>Apresentação 1</th>
+					<td>
+						<?php if(!is_null($view_report->ata_apr_1)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ata_apr_1;?>" style="color: rgb(255,255,255)" >Ata</a> <br>
+						<?php endif; ?>
+
+						<?php if(!is_null($view_report->img_apr_1)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->img_apr_1;?>" style="color: rgb(255,255,255)" >Evidência</a><br>
+						<?php endif; ?>
+					</td>
+				</tr>
+				<tr>
+				<th>Apresentação 2</th>
+					<td>
+						<?php if(!is_null($view_report->ata_apr_2)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ata_apr_2;?>" style="color: rgb(255,255,255)" >Ata</a> <br>
+						<?php endif; ?>
+
+						<?php if(!is_null($view_report->img_apr_2)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->img_apr_2;?>" style="color: rgb(255,255,255)" >Evidência</a><br>
+						<?php endif; ?>
+					</td>
+				</tr>
+				<th>Apresentação 3</th>
+					<td>
+						<?php if(!is_null($view_report->ata_apr_3)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ata_apr_3;?>" style="color: rgb(255,255,255)" >Ata</a> <br>
+						<?php endif; ?>
+
+						<?php if(!is_null($view_report->img_apr_3)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->img_apr_3;?>" style="color: rgb(255,255,255)" >Evidência</a><br>
+						<?php endif; ?>
+					</td>
+				</tr>
+			</tbody>
+    	</table>
+    </div>  
+
+    <div class="table-responsive">
+	<h3>Regularização jurídica </h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Ata da Diretoria</th>
+					<th>Estatuto</th>
+				</tr>
+			</thead>
+			<tbody>
+			 	<tr>
+					<td>
+						<?php if(!is_null($view_juridico->ata)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_juridico->cnpj.'/'.$view_juridico->ata;?>" style="color: rgb(255,255,255)" >Ata</a><br>
+						<?php endif; ?>
+					</td>
+					<td>
+						<?php if(!is_null($view_juridico->estatuto)) : ?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_juridico->cnpj.'/'.$view_juridico->estatuto;?>" style="color: rgb(255,255,255)" >Estatuto</a><br>
+						<?php endif; ?>
+					</td>
+				</tr>
+			</tbody>
+     	</table>
+     </div>
+
+	<div class="table-responsive">
+	<h3>Oficinas de Elaboração de Projetos. </h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Data da Oficina</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_oficina as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->data; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->ata)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->ata;?>" style="color: rgb(255,255,255)" >Ata<br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_1)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_1;?>" style="color: rgb(255,255,255)" >Evidência 1</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_2)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_2;?>" style="color: rgb(255,255,255)" >Evidência 2</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_3)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_3;?>" style="color: rgb(255,255,255)" >Evidência 3</a>
+						<?php endif; ?>					
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+       	<div class="table-responsive">
+		<h3>Audiências para Definição do Projeto.</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Data da Audiencia</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_definicao as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->data; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->ata)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->ata;?>" style="color: rgb(255,255,255)" >Ata<br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_1)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_1;?>" style="color: rgb(255,255,255)" >Evidência 1</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_2)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_2;?>" style="color: rgb(255,255,255)" >Evidência 2</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_3)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_3;?>" style="color: rgb(255,255,255)" >Evidência 3</a>
+						<?php endif; ?>					
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+    <div class="table-responsive">
+	<h3>Audiências para Apresentação do Projeto.</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Data da Audiencia</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_apresentacao as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->data; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->ata)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->ata;?>" style="color: rgb(255,255,255)" >Ata<br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_1)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_1;?>" style="color: rgb(255,255,255)" >Evidência 1</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_2)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_2;?>" style="color: rgb(255,255,255)" >Evidência 2</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_3)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_3;?>" style="color: rgb(255,255,255)" >Evidência 3</a>
+						<?php endif; ?>					
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+       <div class="table-responsive">
+		<h3>Projetos da Instituição</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Titulo</th>
+					<th>Arquivos</th>
+					<th>Banner</th>
+					<th>Vídeo/Power-Point</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_projetos as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->titulo; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->arquivo)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->arquivo;?>" style="color: rgb(255,255,255)" >Projeto<br>
+						<?php endif; ?>			
+					</td>
+					<td>
+						<?php if(!is_null($evt->banner_projeto)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->banner_projeto;?>" style="color: rgb(255,255,255)" >Projeto<br>
+						<?php endif; ?>			
+					</td>
+					<td>
+						<?php if(!is_null($evt->video_projeto)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->video_projeto;?>" style="color: rgb(255,255,255)" >Projeto<br>
+						<?php endif; ?>			
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+     <div class="table-responsive">
+		<h3>Relatório Financeiro</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Ação</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_financeiro as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->acao; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->rel_financeiro)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->rel_financeiro;?>" style="color: rgb(255,255,255)" >Evidência<br>
+						<?php endif; ?>			
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+    <div class="table-responsive">
+	<h3>Encerramento por Projeto</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Ação</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($view_encerramento as $evt) : ?>
+			 	<tr>	
+					<td>
+						<?php echo $evt->projeto; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($evt->img_1)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_1;?>" style="color: rgb(255,255,255)" >Evidência 1</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_2)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_2;?>" style="color: rgb(255,255,255)" >Evidência 2</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($evt->img_3)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$evt->cnpj.'/'.$evt->img_3;?>" style="color: rgb(255,255,255)" >Evidência 3</a>
+						<?php endif; ?>			
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</tbody>
+     	</table>
+     </div>
+
+	<div class="table-responsive">
+	<h3>Encerramento de Todos Projeto</h3>
+    	<table class="table">
+	    	<thead>
+				<tr>
+					<th>Data</th>
+					<th>Arquivos</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			 	<tr>	
+					<td>
+						<?php echo $view_report->evt_enc_geral_data; ?>  
+					</td>
+					<td>
+						<?php if(!is_null($view_report->evt_enc_geral_img_1)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->evt_enc_geral_img_1;?>" style="color: rgb(255,255,255)" >Evidência 1</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($view_report->evt_enc_geral_img_2)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->evt_enc_geral_img_2;?>" style="color: rgb(255,255,255)" >Evidência 2</a><br>
+						<?php endif; ?>
+
+						<?php if(!is_null($view_report->evt_enc_geral_img_3)) :	?>
+							<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->evt_enc_geral_img_3;?>" style="color: rgb(255,255,255)" >Evidência 3</a>
+						<?php endif; ?>			
+					</td>
+				</tr>
+				
+			</tbody>
+     	</table>
+     </div>
+
+	<div class="table-responsive">
+	<h3>Comunicação da ADEMADAN</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Produto da Comunicação</th>
+            <th>Arquivos</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th>Monitoramento de Investimentos Socioambientais (MIS)</th>
+            <td>
+             	<?php if(!is_null($view_report->ademadan_img_1)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_1;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+            </tr>
+            <tr>
+            <th>WEBGIS – Sistema de Informação Geográfica Georreferenciado (site)</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_2)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_2;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+
+            <th>Banner com os projetos</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_3)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_2;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+          <th>Banner do evento (Porto Cidadão)</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_4)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_4;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+          <th>Evento de Apresentação</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_5)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_5;?>>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+          <th>Evento de Encerramento</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_6)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_6;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+          <th>Outros</th>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_7)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->cnpj.'/'.$view_report->ademadan_img_7;?>" style="color: rgb(255,255,255)" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+        </table>
+    </div>
+</div>

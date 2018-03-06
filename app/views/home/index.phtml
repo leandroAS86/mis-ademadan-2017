@@ -1,0 +1,70 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+    
+    <h4 class="alert alert-success">
+        <?php echo $view_user->nome; ?>
+     <h4 class="alert alert-info">
+        Nesta tela é possível cadastrar uma instituição e preencher os relatórios. <br>
+        Na aba Relatórios poderá consultar os dados inseridos. <br>
+        O status e a situação do relatório serão "Reprovados" e "Aberto" respectivamente e podem ser alterados somente pelo Administrador. <br>
+        Após análise, o Administrador mudara o status para "Aprovado". <br>
+        Após a situação do relatório ser alterado para "Fechado" não será mais possível fazer alterações. <br>
+        Os relatórios seguem a ordem cronológica de preenchimento conforme disposto abaixo. <br>
+        Os relatórios 7, 9, 12 e 13 podem ser preenchidos a qualquer tempo.
+
+    </h4>
+    </h4> 
+     <legend></legend>
+    <div class="col-sm-offset-0 col-sm-10">
+        <div class="col-sm-12">
+          <h3>Cadastrar Instituição</h3>
+           <legend></legend>
+        </div>
+
+        <a href="<?php echo BASE; ?>instituicao/" class="col-sm-offset-1" style="color: #0071BF">Cadastrar Instituição</a><br>
+    </div>
+        
+    <div class="col-sm-offset-0 col-sm-10">
+
+    <div class="col-sm-12">
+          <h3>Relatórios</h3>
+           <legend></legend>
+        </div>
+
+    	<a href="<?php echo BASE; ?>aplicacao/" class="col-sm-offset-1" style="color: #0071BF">1 - Relatório de Diagnóstico</a><br>
+        <a href="<?php echo BASE; ?>juridico/" class="col-sm-offset-1" style="color: #0071BF">2 - Regularização jurídica das instituições.</a><br>
+        <a href="<?php echo BASE; ?>oficina/" class="col-sm-offset-1" style="color: #0071BF">3 - Oficina de elaboração de projetos.</a><br>
+    	<a href="<?php echo BASE; ?>definicao/" class="col-sm-offset-1" style="color: #0071BF">4 - Audiência para definição de projetos por Comunidade.</a><br>
+        <a href="<?php echo BASE; ?>apresentacao/" class="col-sm-offset-1" style="color: #0071BF">5 - Audiências para apresentação do projeto.</a><br>
+        <a href="<?php echo BASE; ?>projetos/" class="col-sm-offset-1" style="color: #0071BF">6 - Projetos por Instituição.</a><br>
+    	<a href="<?php echo BASE; ?>financeiro/" class="col-sm-offset-1" style="color: #0071BF">7 - Cronograma físico-financeiro</a><br>
+    	<a href="<?php echo BASE; ?>encerramento/" class="col-sm-offset-1" style="color: #0071BF">8 - Eventos de encerramento por projeto.</a><br>
+    	<a href="<?php echo BASE; ?>encgeral/" class="col-sm-offset-1" style="color: #0071BF">9 - Eventos de encerramento de todos os projetos.</a><br>
+        <a href="<?php echo BASE; ?>quantitativo/" class="col-sm-offset-1" style="color: #0071BF">10 - Pessoas contempladas pelos projetos</a><br>
+        <a href="<?php echo BASE; ?>comunicacao/" class="col-sm-offset-1" style="color: #0071BF">11 - Comunicação dos Projetos</a><br>
+      
+	</div>
+
+    <div class="col-sm-offset-0 col-sm-10">
+
+    <div class="col-sm-12">
+          <h3>Relatórios ADEMADAN</h3>
+           <legend></legend>
+        </div>
+
+        <a href="<?php echo BASE; ?>comademadan/" class="col-sm-offset-1" style="color: #0071BF">12 - Comunicação da ADEMADAN</a><br>
+        <a href="<?php echo BASE; ?>questionario/" class="col-sm-offset-1" style="color: #0071BF">13 - Questionário Qualitativo</a><br>
+    </div>
+
+    <div class="col-sm-12">
+        <br>
+        <legend></legend>
+	   <div class="col-sm-offset-1 col-sm-10">
+    	   <a href="<?php echo BASE . 'login/sair'; ?>" class="btn btn-danger">Sair</a>
+	   </div>
+    </div>
+     
+</div>

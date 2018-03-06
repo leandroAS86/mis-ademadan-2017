@@ -1,0 +1,19 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+    <?php 
+      echo (isset($this->alert) ? $this->alert : '');
+    ?>
+    <video width="426" height="240" controls autoplay loop muted preload="auto">
+		<?php
+			var_dump($view_video);
+		?>
+  		<source src="view_video" type="video/mp4" />
+   		<source src="view_video" type="video/webm"/>
+   		<source src="view_video" type="video/ogg"/>   
+   		<p>Fallback code if video isn't supported</p>/
+	</video>
+
+ </div>

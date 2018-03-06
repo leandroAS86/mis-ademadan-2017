@@ -1,0 +1,171 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+    <?php 
+      echo (isset($this->alert) ? $this->alert : '');
+    ?>
+	<div class="table-responsive">
+	<h3>Comunicação da ADEMADAN</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Produto da Comunicação</th>
+            <th>Arquivos</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Monitoramento de Investimentos Socioambientais (MIS)</td>
+            <td>
+             	<?php if(!is_null($view_report->ademadan_img_1)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_1;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+           </tr>
+            <tr>
+            <td>WEBGIS – Sistema de Informação Geográfica Georreferenciado (site)</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_2)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_2;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+           <tr>
+            <td>Banner com os projetos</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_3)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_2;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+           <tr>
+          <td>Banner do evento (Porto Cidadão)</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_4)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_4;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+           <tr>
+          <td>Evento de Apresentação</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_5)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_5;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+           <tr>
+          <td>Evento de Encerramento</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_6)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_6;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+           <tr>
+          <td>Outros</td>
+            <td>
+              <?php if(!is_null($view_report->ademadan_img_7)) :	?>
+					<a href="<?php echo BASE.'visualizar/baixar/'.$view_report->user_id.'/'.$view_report->ademadan_img_7;?>" style="color: #0071BF" >Evidência</a>
+				<?php endif; ?>	
+            </td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+
+
+
+<div class="table-responsive">
+	<h3>Questionário Qualitativo</h3>
+      	<table class="table">
+     		<tr>
+     		 	<td>
+            		a)	Quais dificuldades encontradas na regularização jurídica das instituições? 
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_1)) :	?>
+						<?php echo $view_report->questao_1;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+       		<tr>
+     		 	<td>
+            		b)	Quais dificuldades encontradas nos eventos para a definição dos projetos individuais? 
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_2)) :	?>
+						<?php echo $view_report->questao_2;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>	
+       		<tr>
+     		 	<td>
+            		c)	Quais as dificuldades encontradas para a elaboração de projetos? 
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_3)) :	?>
+						<?php echo $view_report->questao_3;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+       		<tr>
+     		 	<td>
+            		d)	Quais as dificuldades encontradas na execução dos projetos? 
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_4)) :	?>
+						<?php echo $view_report->questao_4;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+       		<tr>
+     		 	<td>
+            		e)	Escreva como as instituições e a ADEMADAN executam o projeto de comunicação.
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_5)) :	?>
+						<?php echo $view_report->questao_5;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+       		<tr>
+     		 	<td>
+            		f)	Escreva sobre a expectativa e envolvimento das comunidades em seus projetos.
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_6)) :	?>
+						<?php echo $view_report->questao_6;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+       		<tr>
+     		 	<td>
+            		g)	Escreva sobre o que considera relevante para a análise da gestão dos projetos.
+            	</td>    
+        	</tr>
+        	<tr>
+         		<td>
+          			<?php if(!is_null($view_report->questao_7)) :	?>
+						<?php echo $view_report->questao_7;?>
+					<?php endif; ?>
+				</td>	
+       		</tr>
+        </table>
+    </div>
+</div>

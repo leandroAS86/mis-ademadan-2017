@@ -1,0 +1,14 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+
+    <div class="col-sm-offset-0 col-sm-10">
+    	<legend>Relatórios Geral </legend>
+    	<a href="<?php echo BASE . 'visualizar/geralrelatorio/' . $view_institution->cnpj; ?>" style="color: rgb(255,255,255)">Para visualizar as informações do relatório, clique aqui para para ter acesso ao formulário.</a><br>
+
+	<legend>Arquivos </legend>
+    	<a href="<?php echo BASE . 'visualizar/visualizararquivo/' . $view_institution->cnpj; ?>" style="color: rgb(255,255,254)">Para visualizar os arquivos com evidências, clique aqui.</a><br>
+	</div>
+</div>

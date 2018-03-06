@@ -1,0 +1,133 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+<div class="panel-body">
+    <?php echo (isset($this->alert) ? $this->alert:''); ?>
+
+  <form action ="<?php echo BASE; ?>comademadan/registrar/" enctype="multipart/form-data" class="form-horizontal" method = "post">
+   
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Produto da Comunicação</th>
+            <th>Data</th>
+            <th>Evidência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monitoramento de Investimentos Socioambientais (MIS)</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_1" class="form-control" id="ademadan_data_1">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_1" id="ademadan_img_1" >
+             </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>WEBGIS – Sistema de Informação Geográfica Georreferenciado (site)</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_2" class="form-control" id="ademadan_data_2">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_2" id="ademadan_img_2" >
+             </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Banner com os projetos</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_3" class="form-control" id="ademadan_data_3">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_3" id="ademadan_img_3" >
+             </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Banner do evento (Porto Cidadão)</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_4" class="form-control" id="ademadan_data_4">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_4" id="ademadan_img_4" >
+             </div>
+            </td>
+           </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Evento de Apresentação</td>
+              <td>
+                <div class="col-sm-10">
+                  <input type="date" name="ademadan_data_5" class="form-control" id="ademadan_data_5">
+                </div>
+              </td>
+              <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_5" id="ademadan_img_5" >
+             </div>
+            </td>
+            </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Evento de Encerramento</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_6" class="form-control" id="ademadan_data_6">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_6" id="ademadan_img_6" >
+             </div>
+            </td>
+            </tr>
+          </tbody>
+          <tbody>
+          <tr>
+            <td>Outros</td>
+            <td>
+              <div class="col-sm-10">
+                <input type="date" name="ademadan_data_7" class="form-control" id="ademadan_data_7">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="file" name="ademadan_img_7" id="ademadan_img_7" >
+             </div>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+        </div> 
+        <div class="form-group">
+        <div class="col-sm-offset-0 col-sm-10">
+            <input type="submit" class="btn btn-success">
+            <input type="reset" class="btn btn-success" value="Limpar">
+            <a href="<?php echo BASE; ?>home/" style="color: #0071BF">Retornar para Home</a>
+        </div>
+      </div>
+    </form>
+</div>

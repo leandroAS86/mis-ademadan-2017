@@ -1,0 +1,101 @@
+
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+<div class="panel-body">
+    <?php echo (isset($this->alert) ? $this->alert:''); ?>
+
+  <form id="searchbarid" name="Search"  action="<?php echo BASE; ?>encerramento/mostrarnovo" method="get">
+        <div class="form-group">
+
+        <div class="col-sm-12">
+          <h3>Evento de encerramento por projeto.</h3>
+          <legend></legend>
+          <h4 class="alert alert-info">
+            Nesta tela é possível criar novo relatório de Eventos de encerramento por projeto. <br>
+            1. Selecionar o nome da instituição na lista abaixo, <br>
+            2. Clicar em Pesquisar, <br>
+            3. Selecionar o projeto para criar relatório de encerramento, <br>
+            4. Preencher o formulário e <br> 
+            5. Clicar em Enviar. <br>
+            Verifique a situação da instituição na aba Relatórios. <br>
+            Apenas instituições com situação em aberto são listadas <abaixo class=""></abaixo>
+        </h4>
+        </div>
+    
+          <div class="col-sm-8">
+          <label for="nome" class="col-sm-0 control-label">Pesquisar projetos:</label>
+              <select class="form-control" name = "name_institution" id="name_institution">
+                  <?php 
+                      foreach ($view_institutions as $inst) :
+                        if (!$inst->situation) : ?>
+                  ?>
+                     <option>
+                        CNPJ>> <?php echo $inst->cnpj; ?> >>
+                        <?php echo $inst->name_institution; ?>                        
+                      </option>
+                  <?php 
+                    endif;
+                  endforeach;
+                ?>
+              </select><br>
+          </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-0 col-sm-10">
+                <input type='submit' name="Submit" value="Pesquisar" class="btn btn-success"/>
+            </div>
+        </div> 
+
+    </form>
+
+
+    <form action ="<?php echo BASE; ?>encerramento/registrar" enctype="multipart/form-data" class="form-horizontal" method = "post">
+       <div class="form-group">
+        <label for="nome" class="col-sm-3 control-label">Projetos:</label>
+        <div class="col-sm-8">
+          <select required class="form-control" name = "projeto" id="projeto">
+                <?php 
+                  foreach ($view_projects as $proj) :
+                ?>
+                  <option>
+                    ID >>  <?php echo $proj->id; ?> >> <?php echo $proj->titulo; ?>                    
+                  </option>
+                <?php 
+                  endforeach;
+                ?>
+            </select>
+          </div>
+      </div>  
+
+      <div class="form-group">
+          <label for="imagem" class="col-sm-3 control-label">Data</label>
+          <div class="col-sm-8">
+              <input required type="date" name="data" class="form-control" id="data">
+          </div>
+      </div>
+
+         <div class="form-group">
+          <label for="apl_img" class="col-sm-3 control-label"> Evidência 1</label>
+          <input type="file" name="img_1" id="img_1" >
+        </div>
+
+      <div class="form-group">
+          <label for="imagem" class="col-sm-3 control-label">Evidência 2</label>
+          <input type="file" name="img_2" id="img_2">
+      </div>
+      
+      <div class="form-group">
+          <label for="imagem" class="col-sm-3 control-label">Evidência 3</label>
+          <input type="file" name="img_3" id="img_3">
+      </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-10">
+                <input type="submit" class="btn btn-success">
+                <input type="reset" class="btn btn-success" value="Limpar">
+                <a href="<?php echo BASE; ?>home/" style="color:  #0071BF">Retornar para Home</a>
+            </div>
+        </div>
+    </form>
+</div>

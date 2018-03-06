@@ -1,0 +1,73 @@
+<div class="panel-heading">
+    <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+</div>
+
+<div class="panel-body">
+	<?php 
+		echo (isset($this->alert) ? $this->alert : '');
+	?>
+	  <h4 class="alert alert-info">
+	  	Primeiramento selelione uma opção e então no botão "Ações".<br><br>
+	  	User = Usuário pode criar e atualizar os apenas relatórios. <br>
+	  	Adm = Usuário com acesso ao menu completo, pode editar relatórios e tipos de usuários.<br>
+	  	Inst = Usuário apenas visualiza relatórios. <br><br>
+	  	Para alterar o tipo de usuário, primeiro clique em "Ações" para bloquear o usuário, selecione o novo tipo de usuário e então clique novamente em "Ações" para desbloquear.
+          
+    </h4>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>E-mail</th>
+				<th>Nome</th>
+				<th>Login</th>
+				<th>Tipo</th>
+				<th>Ações</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+			if ($view_users) : 
+				foreach ($view_users as $user) : 
+			?>
+			<tr>
+			<form id="searchbarid" name="Search"  action="<?php echo BASE; ?>usuarios/role" method="post">
+			<div class="form-group">
+				<td> <input type="text" name="email" value="<?php echo $user->email; ?>"></td>
+				<td><?php echo $user->nome; ?></td>		
+				<td><?php echo $user->username; ?></td>
+				<td>
+					<div class="form-group">
+						<input required type="radio" name="role" id="role" value="user" >User 
+			            <input required type="radio" name="role" id="role" value="adm">Adm
+			            <input required type="radio" name="role" id="role" value="inst">Inst
+			     	</div>
+			    </td>
+			    <td>	
+					<div class="form-group">
+					<?php if ($user->status === 0) : ?>
+			        	
+			          	<button type="submit" class="btn btn-xs btn-warning" > <i class="fa fa-lock"></i> Desbloquear </button>
+			        	
+			      	<?php else: ?>
+			      	 
+			          	<button type="submit"  class="btn btn-xs btn-success"><i class="fa fa-unlock"></i> Bloquear </button>
+			      	
+			      		<?php endif; ?>
+			      	</div>
+				</td>
+			</div>
+			</form>
+			<td>
+				<a href="<?php echo BASE . 'usuarios/excluir/' . $user->id; ?>" class="btn btn-xs btn-danger	"><i class="fa fa-trash"></i> Excluir
+				</a>
+			</td>
+			</tr>
+		<?php 
+				endforeach;
+			endif;
+		?>
+	</tbody>
+	</table>
+</div>

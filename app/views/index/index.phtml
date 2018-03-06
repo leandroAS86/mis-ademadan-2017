@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-custom">
+            <div class="panel-heading">
+                <?php echo (isset($this->menu) ? $this->menu : ''); ?>
+            </div>
+            <div class="panel-body">
+                <?php
+                    $this->partial('message', array(
+                         'msg' => 'Bem vindo ao MIS - Monitoramento de Investimento Socioambiental!'
+                    ));
+                ?>
+                <p>
+                    Agora acesse a <a class="btn btn-success btn-xs" href="<?php echo BASE; ?>login/" target="_blank">área de membros</a> e faça o cadastro ou seu login no sistema para preencher os relatórios.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
